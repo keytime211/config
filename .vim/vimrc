@@ -1,0 +1,126 @@
+" set：功能
+" loader：vim特殊自定义按键
+" noremap：normal模式下
+" inoremap：insert模式
+
+" ==============键盘=========================
+"               映射/映射成空格
+let mapleader=","
+"===============功能=========================
+"               打开颜色
+syntax on
+"               打开行号
+set number
+"               打开当前行号
+set relativenumber
+"               打开当前行下划线
+set cursorline
+"               打开下方提示按键
+set showcmd
+"               设置窗口自适应（自动换行）
+set wrap
+"               打开命令提示
+set wildmenu
+"===============搜索功能设置===================
+"               打开搜索高亮
+set hlsearch
+"               每次打开都关闭搜索高亮
+exec  "nohlsearch"
+"               打开一边输入一边搜索
+set incsearch
+"               忽略搜索大小写
+set ignorecase
+"               智能大小写
+set smartcase
+"		,+z 映射成关闭搜索高亮
+noremap <leader>z :nohlsearch<CR>
+"               ,加+w insert退出到normal模式并保存
+inoremap <leader>w <Esc>:w<CR>
+
+"===============窗口大小设置==================
+"		上下窗口 上size5
+noremap <up> :res +5<CR>
+"		上下窗口 下size5
+noremap <down> :res -5<CR>
+"		左右窗口 左size5
+noremap <left> :vertical resize -5<CR>
+"		左右窗口 右size5
+noremap <right> :vertical resize +5<CR>
+"		窗口光标左移
+noremap <C-h> <C-w>h
+"		窗口光标下移
+noremap <C-j> <C-w>j
+"		窗口光标上移
+noremap <C-k> <C-w>k
+"		窗口光标右移
+noremap <C-l> <C-w>l
+"		水平分割
+noremap <leader>p :split<CR>
+"		垂直分割
+noremap <leader>v :vsplit<CR>
+
+"===============更改键位=====================
+noremap W	:w<CR>
+noremap Q	:q<CR>
+
+
+
+"===============标签页设置==================
+"		新建标签页
+noremap tu	:tabe<CR>
+"		上一个标签页
+noremap tN	:-tabnext<CR>
+"		下一个标签
+noremap tn	:+tabnext<CR>
+
+
+"===============insert模式映射=================
+inoremap jj <Esc>
+
+
+"===============插件安装=======================
+"		使用插件
+call plug#begin('~/.vim/plugged')
+"		安装的插件
+Plug 'vim-airline/vim-airline'
+Plug 'connorholyday/vim-snazzy'
+Plug 'preservim/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'mhinz/vim-startify'
+Plug 'Yggdroot/indentLine'
+Plug 'kien/ctrlp.vim'	
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'brooth/far.vim'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+"		插件结束
+call plug#end()
+
+"		snazzy插件配置
+colorscheme snazzy
+let g:SnazzyTransparent = 1
+
+
+"		NERDTree文件树
+noremap <leader>c :NERDTreeFind<CR>
+noremap <leader>g :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore= [
+         \'\.git$', '\.hg$', '\.svn$', '\.stversions$', '\.pyc$', '\.pyo$', '\.swp$',
+         \ '\.DS_Store$', '\.sass-cache$', '__pycache__$', '\.egg-info$', '\.ropeproject$',
+	 \ ]
+
+
+"		ctrlp
+let  g:ctrlp_map='<C-p>'
+ 
+"		vim-easymotion
+nmap ss <Plug>(easymotion-overwin-f2)
+
+"		jedi-vim
+let g:jedi#completions_command = "<leader>x"
+
+
