@@ -90,9 +90,10 @@ inoremap jj <Esc>
 call plug#begin('$HOME/.config/nvim/plugged')
 "===============colors=========================
 Plug 'mhinz/vim-startify'
-"connorholyday/vim-snazzy
-Plug 'w0ng/vim-hybrid'
+Plug 'connorholyday/vim-snazzy'
+" Plug 'w0ng/vim-hybrid'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -116,14 +117,37 @@ Plug 'dhruvasagar/vim-table-mode'
 "===============junegunn/vim-easy-align======
 Plug 'junegunn/vim-easy-align'
 
+" Markdown
+Plug 'plasticboy/vim-markdown'
+
+
+
+
+
+
 call plug#end()
+
+" ===
+" === vim-airline
+" ===
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+
+
 
 "===
 "===hybrid
 "===
-set background=dark
-colorscheme hybrid
+" set background=dark
+" colorscheme hybrid
 
+"===
+"===hybrid
+"===
+colorscheme snazzy
+let g:SnazzyTransparent = 1
 
 "===
 "===NERDTree
@@ -166,3 +190,17 @@ noremap <leader>tm :TableModeToggle<CR>
 "===
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+
+" ===
+" === Markdown Settings
+" ===
+" zr：降低整个缓冲区的折叠级别
+" zR: 打开所有折叠
+" zm：增加整个缓冲区的折叠水平
+" zM: 把所有东西都折叠起来
+" za: 打开一个折叠你的光标所在
+" zA：打开一个折叠你的光标递归
+" zc: 关闭一个折叠你的光标所在
+" zC：关闭一个折叠你的光标递归
+
