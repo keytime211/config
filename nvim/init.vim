@@ -204,3 +204,11 @@ nmap ga <Plug>(EasyAlign)
 " zc: 关闭一个折叠你的光标所在
 " zC：关闭一个折叠你的光标递归
 
+" ===
+" === coc-translator
+" ===
+nmap <Leader>t <Plug>(coc-translator-p)
+vmap <Leader>t <Plug>(coc-translator-pv)
+" echo
+nmap <Leader>e <Plug>(coc-translator-e)
+vmap <Leader>e <Plug>(coc-translator-ev)
